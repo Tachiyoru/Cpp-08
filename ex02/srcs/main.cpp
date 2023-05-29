@@ -5,42 +5,36 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: sleon <sleon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/23 15:58:51 by sleon             #+#    #+#             */
-/*   Updated: 2023/05/23 16:29:08 by sleon            ###   ########.fr       */
+/*   Created: 2023/05/29 16:29:31 by sleon             #+#    #+#             */
+/*   Updated: 2023/05/29 16:52:30 by sleon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <list>
-#include <string>
-#include "Easyfind.hpp"
+#include "MutantStack.hpp"
 
-int	main(){
-	std::list<int>				lst;
-	std::list<int>::iterator	it;
-
-	lst.push_back(15);
-	lst.push_back(150);
-	lst.push_back(2);
-	lst.push_back(91);
-	lst.push_back(82);
-
-	try
+int	main()
+{
+	MutantStack<int> mstack;
+	
+	mstack.push(5);
+	mstack.push(17);
+	std::cout << mstack.top() << std::endl;
+	mstack.pop();
+	std::cout << mstack.size() << std::endl;
+	mstack.push(3);
+	mstack.push(5);
+	mstack.push(737);
+	//[...]
+	mstack.push(0);
+	MutantStack<int>::iterator it = mstack.begin();
+	MutantStack<int>::iterator ite = mstack.end();
+	++it;
+	--it;
+	while (it != ite)
 	{
-		it = easyfind (lst, 2);
-		std::cout<<*it<<std::endl;
+	std::cout << *it << std::endl;
+	++it;
 	}
-	catch (std::exception &e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-	try
-	{
-		it = easyfind (lst, 42);
-		std::cout<<*it<<std::endl;
-	}
-	catch (std::exception &e)
-	{
-		std::cout << e.what() << std::endl;
-	}
+	std::stack<int> s(mstack);
+	return 0;
 }

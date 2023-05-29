@@ -5,42 +5,32 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: sleon <sleon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/23 15:58:51 by sleon             #+#    #+#             */
-/*   Updated: 2023/05/23 16:29:08 by sleon            ###   ########.fr       */
+/*   Created: 2023/05/23 16:36:18 by sleon             #+#    #+#             */
+/*   Updated: 2023/05/29 15:20:48 by sleon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Span.hpp"
 #include <iostream>
-#include <list>
-#include <string>
-#include "Easyfind.hpp"
 
-int	main(){
-	std::list<int>				lst;
-	std::list<int>::iterator	it;
+int main()
+{
+	Span sp = Span(5);
 
-	lst.push_back(15);
-	lst.push_back(150);
-	lst.push_back(2);
-	lst.push_back(91);
-	lst.push_back(82);
+	sp.addNumber(6);
+	sp.addNumber(3);
+	sp.addNumber(17);
+	sp.addNumber(9);
+	sp.addNumber(11);
 
-	try
-	{
-		it = easyfind (lst, 2);
-		std::cout<<*it<<std::endl;
-	}
-	catch (std::exception &e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-	try
-	{
-		it = easyfind (lst, 42);
-		std::cout<<*it<<std::endl;
-	}
-	catch (std::exception &e)
-	{
-		std::cout << e.what() << std::endl;
-	}
+	std::cout << sp.shortestSpan() << std::endl;
+	std::cout << sp.longestSpan() << std::endl;
+
+	Span sp2 = Span(100);
+	sp2.fillLst();
+
+	std::cout<<std::endl;
+	std::cout<<"auto fill"<< sp2.shortestSpan() << std::endl;
+	std::cout<<"auto fill"<< sp2.longestSpan() << std::endl;
+	return 0;
 }
