@@ -6,7 +6,7 @@
 /*   By: sleon <sleon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 16:29:31 by sleon             #+#    #+#             */
-/*   Updated: 2023/05/29 16:52:30 by sleon            ###   ########.fr       */
+/*   Updated: 2023/05/29 17:46:45 by sleon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	main()
 {
 	MutantStack<int> mstack;
-	
+
 	mstack.push(5);
 	mstack.push(17);
 	std::cout << mstack.top() << std::endl;
@@ -24,7 +24,7 @@ int	main()
 	mstack.push(3);
 	mstack.push(5);
 	mstack.push(737);
-	//[...]
+
 	mstack.push(0);
 	MutantStack<int>::iterator it = mstack.begin();
 	MutantStack<int>::iterator ite = mstack.end();
